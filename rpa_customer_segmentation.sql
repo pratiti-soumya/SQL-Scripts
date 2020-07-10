@@ -24,7 +24,7 @@ FROM users where created_at<='2017-04-30';
 SELECT email from users
 WHERE test='bears';
 
---  total of 4 advertising campaigns were run over this period.
+--5.  total of 4 advertising campaigns were run over this period.
 
 -- There were two sets of ad copy (set 1 and set 2) and both were run on two search engine sites (AAA and BBB).
 
@@ -39,14 +39,14 @@ WHERE test='bears';
 SELECT email from users
 WHERE campaign LIKE 'BBB%';
 
--- Find all the emails of all users who received ad copy 2 in their campaign.
+--6. Find all the emails of all users who received ad copy 2 in their campaign.
 
 
 SELECT email
 FROM users
 WHERE campaign LIKE '%-2';
 
--- Find the emails for all users who received both a campaign and a test.
+-- 7.Find the emails for all users who received both a campaign and a test.
 
 -- These users will have non-empty entries in the campaign and test columns.
 
