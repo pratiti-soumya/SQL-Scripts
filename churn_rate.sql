@@ -47,3 +47,9 @@ FROM status_aggregate;
 --2017-01-01	0.126811594202899
 --2017-02-01	0.124505928853755
 --2017-03-01	0.23688155922039
+
+--subscriptions TABLE:
+--1000 rows
+--id	INTEGER
+--subscription_start	TEXT
+--subscription_end	TEXT
