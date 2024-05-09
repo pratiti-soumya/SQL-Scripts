@@ -1,10 +1,6 @@
-#Find the names all students who never took a class from their home department if any.
-
-select name from Student where name not in
+select semester, year, class_id, sec_id, Enrolled from
 (
-    select Student.name from Student inner join 
-        (
-            select Takes.id, Class.dept from Takes inner join Class on Takes.class_id = Class.class_id
-        ) as Takes_in_dept
-    on Student.id = Takes_in_dept.id where Student.dept=Takes_in_dept.dept 
-);
+    select semester, year, class_id, sec_id, Count(id) as Enrolled from Takes group by semester, year, class_id, sec_id
+) as Course_enrollment
+group by semester, year, class_id
+having Enrolled=MAX(Enrolled);

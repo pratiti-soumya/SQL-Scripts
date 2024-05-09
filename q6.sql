@@ -1,10 +1,5 @@
-# Find the names of all students who have ever received a grade of A- or above.
-
-select name from Student where name not in 
+select Student.name, id_credits_sum.credits_sum from Student inner join
 (
-    select name from Student where name not in 
-    (
-        select Student.name from Student inner join Takes on Student.id = Takes.id where Takes.grade in ("A-", "A")
-    )
-
-);
+    select Takes.id, SUM(Class.credits) as credits_sum from Class inner join Takes on Takes.class_id = Class.class_id group by Takes.id
+) as id_credits_sum
+on Student.id=id_credits_sum.id;

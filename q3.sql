@@ -1,3 +1,1 @@
-#Find all classrooms whose building starts with the string "P"
-
-select * from Classroom where building like "P%";
+select building from Section group by building having count(*)>3;
